@@ -8,12 +8,17 @@ A quality-of-life mod for **The Binding of Isaac: Repentance+** that improves th
 - [x] **Item quality filter for Tainted Lost** — tier 0 and tier 1 items never appear on pedestals for Tainted Lost. If Tainted Lost holds item 691, tier 2 items are also blocked. When a disqualified item would appear, it is rerolled from the same pool for a qualifying replacement.
 - [x] **Price discount** — items priced at 30 or 99 coins (Greed mode shops, The Stairway angel shops) are reduced to 15 coins. Applies to items like Sacred Heart, R Key, and other high-tier shop items.
 - [x] **Shop pool expansion** — adds Breakfast (3), Jesus Juice (25), ID 197, 20/20 (245), Spoon Bender (444), Consolation Prize (586), Sausage (669), and Stapler (708) to the shop item pool.
+- [x] **Secret room improvements** — adds 9 items to the secret room pool (Rosary, The Halo, Ouija Board, Polyphemus, Abaddon, Jacob's Ladder, Little Horn, Immaculate Heart, C Section) and raises the chance of secret rooms containing an item pedestal from ~21% to ~50% via 16 additional room layouts.
 
 ## Changelog
 
+### [0.5.0] — 2026-05-11
+
+- **Secret room improvements:** added 9 items to the secret room pool via `content/itempools.xml`. Added 16 new secret room layouts with item pedestals via `resources/rooms/00.special rooms.stb`, raising the item-pedestal probability from ~21% to ~50%. Variant IDs 2000–2015 to avoid collision with vanilla (0–38) and other mods.
+
 ### [0.4.0] — 2026-05-11
 
-- **Shop pool expansion:** added 8 items to the shop pool via `content/itempools.xml`. Stapler pending ID.
+- **Shop pool expansion:** added 8 items to the shop pool via `content/itempools.xml`.
 
 ### [0.3.0] — 2026-05-11
 

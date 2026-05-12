@@ -17,4 +17,16 @@
         <Item Id="669" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Sausage -->
         <Item Id="708" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Stapler -->
     </Pool>
+
+    <Pool Name="secret">
+        <Item Id="72"  Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Rosary -->
+        <Item Id="101" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- The Halo -->
+        <Item Id="115" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Ouija Board -->
+        <Item Id="169" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Polyphemus -->
+        <Item Id="230" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Abaddon -->
+        <Item Id="494" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Jacob's Ladder -->
+        <Item Id="503" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Little Horn -->
+        <Item Id="573" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Immaculate Heart -->
+        <Item Id="678" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- C Section -->
+    </Pool>
 </itempools>
