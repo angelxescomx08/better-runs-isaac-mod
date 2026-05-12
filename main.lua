@@ -33,3 +33,4 @@ end)
 
 require("features.angel_guarantee").init(mod, save, writeData)
 require("features.quality_filter").init(mod)
+require("features.price_discount").init(mod)
