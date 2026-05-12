@@ -5,8 +5,14 @@ A quality-of-life mod for **The Binding of Isaac: Repentance+** that improves th
 ## Features
 
 - [x] **Guaranteed angel room after skipping devil room** — if a devil room door appears and you ignore it, the next deal room on any subsequent floor is guaranteed to be an angel room (provided the normal no-red-heart-damage condition is met).
+- [x] **Item quality filter for Tainted Lost** — tier 0 and tier 1 items never appear on pedestals for Tainted Lost. If Tainted Lost holds item 691, tier 2 items are also blocked. When a disqualified item would appear, it is rerolled from the same pool for a qualifying replacement.
 
 ## Changelog
+
+### [0.2.0] — 2026-05-11
+
+- Refactored into a modular feature system (`features/` directory).
+- **Item quality filter:** Tainted Lost cannot receive items below quality 2 (tiers 0–1). Holding item 691 raises the floor to quality 3 (tiers 0–2 also blocked). Rerolls from the same pool on pedestal spawn.
 
 ### [0.1.0] — 2026-05-11
 
