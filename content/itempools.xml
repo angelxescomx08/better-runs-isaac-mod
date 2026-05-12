@@ -1,0 +1,20 @@
+<itempools>
+    <!--
+        Adds items to the shop pool that are not normally purchasable.
+        The game merges this file with the base itempools.xml automatically.
+
+        Weight    : relative probability of the item being picked from the pool.
+        DecreaseBy: how much weight is lost each time the item is selected.
+        RemoveOn  : weight floor below which the item leaves the pool for the run.
+    -->
+    <Pool Name="shop">
+        <Item Id="3"   Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Breakfast -->
+        <Item Id="25"  Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Jesus Juice -->
+        <Item Id="197" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- ID 197 -->
+        <Item Id="245" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- 20/20 -->
+        <Item Id="444" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Spoon Bender -->
+        <Item Id="586" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Consolation Prize -->
+        <Item Id="669" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Sausage -->
+        <Item Id="708" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Stapler -->
+    </Pool>
+</itempools>

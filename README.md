@@ -7,8 +7,13 @@ A quality-of-life mod for **The Binding of Isaac: Repentance+** that improves th
 - [x] **Guaranteed angel room after skipping devil room** — if a devil room door appears and you ignore it, the next deal room on any subsequent floor is guaranteed to be an angel room (provided the normal no-red-heart-damage condition is met).
 - [x] **Item quality filter for Tainted Lost** — tier 0 and tier 1 items never appear on pedestals for Tainted Lost. If Tainted Lost holds item 691, tier 2 items are also blocked. When a disqualified item would appear, it is rerolled from the same pool for a qualifying replacement.
 - [x] **Price discount** — items priced at 30 or 99 coins (Greed mode shops, The Stairway angel shops) are reduced to 15 coins. Applies to items like Sacred Heart, R Key, and other high-tier shop items.
+- [x] **Shop pool expansion** — adds Breakfast (3), Jesus Juice (25), ID 197, 20/20 (245), Spoon Bender (444), Consolation Prize (586), Sausage (669), and Stapler (708) to the shop item pool.
 
 ## Changelog
+
+### [0.4.0] — 2026-05-11
+
+- **Shop pool expansion:** added 8 items to the shop pool via `content/itempools.xml`. Stapler pending ID.
 
 ### [0.3.0] — 2026-05-11
 
