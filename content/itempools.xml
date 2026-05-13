@@ -1,4 +1,4 @@
-<itempools>
+<ItemPools>
     <!--
         Adds items to the shop pool that are not normally purchasable.
         The game merges this file with the base itempools.xml automatically.
@@ -29,4 +29,4 @@
         <Item Id="573" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- Immaculate Heart -->
         <Item Id="678" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  <!-- C Section -->
     </Pool>
-</itempools>
+</ItemPools>

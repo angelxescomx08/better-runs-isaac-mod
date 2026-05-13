@@ -1,5 +1,10 @@
--- Guarantees an angel room on the next floor when a devil room door is skipped.
+-- Guarantees an angel room on the next deal when the devil room is skipped.
 -- Carries the guarantee across floors until a deal room actually appears.
+--
+-- We use Level:InitializeDevilAngelRoom(true, false) to lock the deal choice
+-- to an angel room *before* the door is created. Mutating RoomDescriptor.Data.Type
+-- on an already initialized deal room is unsupported and can crash the game on
+-- Repentance / Repentance+ when the room descriptor desyncs from the layout.
 
 local save
 local writeData
@@ -32,7 +37,16 @@ local function findRoomDescOfType(roomType)
     return nil
 end
 
-local function checkAndApplyGuarantee()
+local function tryForceAngelThisFloor()
+    if not save.guaranteeAngel then return end
+    -- Locks the deal choice to angel for the current floor. Calling it again
+    -- once the deal is already initialized is a documented no-op, so it's safe
+    -- to invoke on every new level / continue.
+    Game():GetLevel():InitializeDevilAngelRoom(true, false)
+    Isaac.DebugString("[BetterRuns] Angel deal forced for this floor.")
+end
+
+local function checkDealOutcome()
     local angelDesc = findRoomDescOfType(RoomType.ROOM_ANGEL)
     local devilDesc = findRoomDescOfType(RoomType.ROOM_DEVIL)
 
@@ -43,15 +57,11 @@ local function checkAndApplyGuarantee()
     if angelDesc then
         save.guaranteeAngel = false
         writeData()
-    elseif devilDesc then
-        -- NOTE: desc.Data.Type is writable in Repentance vanilla.
-        -- If the door sprite does not update visually, REPENTOGON may be needed.
-        devilDesc.Data.Type = RoomType.ROOM_ANGEL
-        save.guaranteeAngel = false
-        writeData()
-        Isaac.DebugString("[BetterRuns] Devil room converted to angel (guarantee consumed).")
+        Isaac.DebugString("[BetterRuns] Angel room granted (guarantee consumed).")
     end
-    -- No deal room this floor (red heart damage): guarantee carries to next floor.
+    -- No deal this floor (red heart damage, etc.): guarantee carries forward.
+    -- If a devil descriptor slipped through (e.g. guarantee set after the deal
+    -- was already locked in), leave the flag active so the next floor retries.
 end
 
 -- ── Callbacks ─────────────────────────────────────────────────────────────────
@@ -63,6 +73,8 @@ local function onGameStarted(_, isContinued)
         writeData()
     end
     resetFloorState()
+    -- On continue, MC_POST_NEW_LEVEL may not fire, so apply the guarantee here too.
+    tryForceAngelThisFloor()
 end
 
 local function onNewLevel()
@@ -72,6 +84,7 @@ local function onNewLevel()
         Isaac.DebugString("[BetterRuns] Devil room skipped — angel guaranteed on next deal room.")
     end
     resetFloorState()
+    tryForceAngelThisFloor()
 end
 
 local function onNewRoom()
@@ -92,7 +105,7 @@ local function onUpdate()
         dealCheckFramesLeft = dealCheckFramesLeft - 1
         if dealCheckFramesLeft == 0 and not run.dealCheckDone then
             run.dealCheckDone = true
-            checkAndApplyGuarantee()
+            checkDealOutcome()
         end
     end
 end
