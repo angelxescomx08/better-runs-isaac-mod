@@ -6,7 +6,8 @@ local json = require("json")
 -- Never reassign `save = { ... }` after init — modules would lose the reference.
 
 local save = {
-    guaranteeAngel = false,
+    satanRejectedRun = true,  -- false once the player enters any devil room
+    eucharistGiven   = false, -- true while angel_guarantee has given the player Eucharist
 }
 
 local function writeData()
